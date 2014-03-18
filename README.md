@@ -18,6 +18,15 @@ config.reveal_cms_partials = true
 ```
 ... to see additional menu items in cms admin area
 
+config/routes.rb example
+```ruby
+  mount Spree::Core::Engine, :at => '/'
+  mount SpreeComfy::Engine, :at => '/'
+ 
+  comfy_route :cms_admin, :path => '/cms_admin'
+  comfy_route :cms, :path => '/', :sitemap => false
+```
+
 Bundle your dependencies and run the installation generator:
 
 ```shell
