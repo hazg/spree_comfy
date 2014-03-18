@@ -1,7 +1,7 @@
 SpreeComfy
 ==========
 
-Introduction goes here.
+Add comfortable-mexican-sofa to spree commerce
 
 Installation
 ------------
@@ -11,6 +11,12 @@ Add spree_comfy to your Gemfile:
 ```ruby
 gem 'spree_comfy'
 ```
+
+In initializers/comfortable-mexican-sofa.rb
+```ruby
+config.reveal_cms_partials = true
+```
+... to see additional menu items in cms admin area
 
 Bundle your dependencies and run the installation generator:
 
