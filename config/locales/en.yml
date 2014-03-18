@@ -1,0 +1,8 @@
+en:
+  spree_comfy:
+    site: Site
+
+  spree:
+    admin:
+      tab:
+        pages: Pages

@@ -1,0 +1,9 @@
+ru:
+  spree_comfy:
+    site: На сайт
+  spree:
+    admin:
+      tab:
+        configuration: Конфиг
+        pages: Страницы
+        users: Люди
