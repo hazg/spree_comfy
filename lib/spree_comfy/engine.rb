@@ -22,9 +22,11 @@ module SpreeComfy
       Cms::ContentController.send :include, SpreeI18n::ControllerLocaleHelper if defined?(SpreeI18n)
 
       Cms::ContentController.send :helper, Spree::BaseHelper
-      Cms::ContentController.send :helper, SpreeComfyHelper
       Cms::ContentController.send :helper, Spree::OrdersHelper
       Cms::ContentController.send :helper, Spree::StoreHelper
+      
+      Cms::ContentController.send :helper, SpreeComfy::Helper
+      Cms::Layout.send :include, SpreeComfy::Layout
 
     end
 

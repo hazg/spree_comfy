@@ -3,7 +3,15 @@ module SpreeComfy
     class InstallGenerator < Rails::Generators::Base
 
       class_option :auto_run_migrations, :type => :boolean, :default => false
+=begin      
+      def source_paths
+        [ File.join(File.dirname(__FILE__), '..', 'templates') ]
+      end
 
+      def add_layouts
+        copy_file('layouts/spree_comfy.html.haml', 'app/views/layouts/spree_comfy.html.haml')
+      end
+=end
       def add_javascripts
         append_file 'vendor/assets/javascripts/spree/frontend/all.js', "//= require spree/frontend/spree_comfy\n"
         append_file 'vendor/assets/javascripts/spree/backend/all.js', "//= require spree/backend/spree_comfy\n"
