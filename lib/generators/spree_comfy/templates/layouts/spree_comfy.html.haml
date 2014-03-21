@@ -1,0 +1,19 @@
+!!!
+%html{:lang => I18n.locale}
+  %head{"data-hook" => "inside_head"}
+    = render :partial => 'spree/shared/head'
+  %body{:class => (defined?(body_class) ? body_class : 'one-col') , "data-hook" => "body", :id => @body_id || 'default'}
+    .container
+      = render :partial => 'spree/shared/header'
+      #wrapper.row{"data-hook" => ""}
+        = breadcrumbs(@taxon)
+        = render :partial => 'spree/shared/sidebar' if content_for? :sidebar
+        #content{:class => "columns #{!content_for?(:sidebar) ? "sixteen" : "twelve omega"}", "data-hook" => ""}
+          = flash_messages
+          = yield
+        = yield :templates
+      = render :partial => 'spree/shared/footer'
+    = render :partial => 'spree/shared/google_analytics'
+    :javascript
+      Spree.api_key = #{raw(try_spree_current_user.try(:spree_api_key).to_s.inspect)};
+
