@@ -15,18 +15,18 @@ module SpreeComfy
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
       
-      Cms::ContentController.send :include, Rails.application.routes.url_helpers
-      Cms::ContentController.send :include, Spree::ViewContext
-      Cms::ContentController.send :include, Spree
-      Cms::ContentController.send :include, Spree::Core::ControllerHelpers
-      Cms::ContentController.send :include, SpreeI18n::ControllerLocaleHelper if defined?(SpreeI18n)
+      Comfy::Cms::ContentController.send :include, Rails.application.routes.url_helpers
+      Comfy::Cms::ContentController.send :include, Spree::ViewContext
+      Comfy::Cms::ContentController.send :include, Spree
+      Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers
+      Comfy::Cms::ContentController.send :include, SpreeI18n::ControllerLocaleHelper if defined?(SpreeI18n)
 
-      Cms::ContentController.send :helper, Spree::BaseHelper
-      Cms::ContentController.send :helper, Spree::OrdersHelper
-      Cms::ContentController.send :helper, Spree::StoreHelper
+      Comfy::Cms::ContentController.send :helper, Spree::BaseHelper
+      Comfy::Cms::ContentController.send :helper, Spree::OrdersHelper
+      Comfy::Cms::ContentController.send :helper, Spree::StoreHelper
       
-      Cms::ContentController.send :helper, SpreeComfy::Helper
-      Cms::Layout.send :include, SpreeComfy::Layout
+      Comfy::Cms::ContentController.send :helper, SpreeComfy::Helper
+      Comfy::Cms::Layout.send :include, SpreeComfy::Layout
 
     end
 

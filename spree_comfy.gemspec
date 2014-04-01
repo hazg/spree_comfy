@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_comfy'
-  s.version     = '2.2.0'
+  s.version     = '2.1.0'
   s.summary     = 'comfortable-mexican-sofa integration'
   s.description = ''
   s.required_ruby_version = '>= 1.9.3'
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 2.2.0'
+  s.add_dependency 'spree_core', '~> 2.1'
   s.add_dependency 'comfortable_mexican_sofa'
 
   s.add_development_dependency 'comfortable_mexican_sofa'
