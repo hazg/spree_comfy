@@ -19,12 +19,15 @@ module SpreeComfy
       Comfy::Cms::ContentController.send :include, Spree::ViewContext
       Comfy::Cms::ContentController.send :include, Spree
       Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers
+      Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Order
+      Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Search
+      Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Common
       Comfy::Cms::ContentController.send :include, SpreeI18n::ControllerLocaleHelper if defined?(SpreeI18n)
 
       Comfy::Cms::ContentController.send :helper, Spree::BaseHelper
       Comfy::Cms::ContentController.send :helper, Spree::OrdersHelper
       Comfy::Cms::ContentController.send :helper, Spree::StoreHelper
-      
+
       Comfy::Cms::ContentController.send :helper, SpreeComfy::Helper
       Comfy::Cms::Layout.send :include, SpreeComfy::Layout
 
