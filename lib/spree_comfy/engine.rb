@@ -15,20 +15,37 @@ module SpreeComfy
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
       
-      Comfy::Cms::ContentController.send :include, Rails.application.routes.url_helpers
-      Comfy::Cms::ContentController.send :include, Spree::ViewContext
-      Comfy::Cms::ContentController.send :include, Spree
-      Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers
-      Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Order
-      Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Search
+      #Rails.application.routes.url_helpers      
+      spree_includes = %W{
+        Spree::ViewContext
+        Spree
+        Spree::Core::ControllerHelpers
+        Spree::Core::ControllerHelpers::Order
+        Spree::Core::ControllerHelpers::Search
+      }
+      spree_includes << 'SpreeI18n::ControllerLocaleHelper' if defined?(SpreeI18n)
+      
+      spree_includes.each {|x| 
+        Comfy::Cms::ContentController.send :include, Object.const_get(x)
+        Comfy::Admin::Cms::PagesController.send :include, Object.const_get(x)
+      }
+      
       Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Common
-      Comfy::Cms::ContentController.send :include, SpreeI18n::ControllerLocaleHelper if defined?(SpreeI18n)
 
-      Comfy::Cms::ContentController.send :helper, Spree::BaseHelper
-      Comfy::Cms::ContentController.send :helper, Spree::OrdersHelper
-      Comfy::Cms::ContentController.send :helper, Spree::StoreHelper
+      
+      spree_helpers = %W{
+        Spree::BaseHelper
+        Spree::BaseHelper
+        Spree::OrdersHelper
+        Spree::StoreHelper
+        SpreeComfy::Helper
+      }
+      
+      spree_helpers.each {|x| 
+        Comfy::Cms::ContentController.send :helper, Object.const_get(x)
+        Comfy::Admin::Cms::PagesController.send :helper, Object.const_get(x)
+      }
 
-      Comfy::Cms::ContentController.send :helper, SpreeComfy::Helper
       Comfy::Cms::Layout.send :include, SpreeComfy::Layout
 
     end
