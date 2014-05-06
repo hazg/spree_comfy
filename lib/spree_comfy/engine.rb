@@ -15,24 +15,26 @@ module SpreeComfy
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
       
-      #Rails.application.routes.url_helpers      
+      
+      # Spree controller helpers 
+
       spree_includes = %W{
-        Spree::ViewContext
-        Spree
-        Spree::Core::ControllerHelpers
-        Spree::Core::ControllerHelpers::Order
-        Spree::Core::ControllerHelpers::Search
+        Spree::Core::ControllerHelpers::Auth
       }
+      
       spree_includes << 'SpreeI18n::ControllerLocaleHelper' if defined?(SpreeI18n)
       
       spree_includes.each {|x| 
         Comfy::Cms::ContentController.send :include, Object.const_get(x)
         Comfy::Admin::Cms::PagesController.send :include, Object.const_get(x)
       }
-      
+
+      Comfy::Cms::ContentController.send :include, Spree::ViewContext
       Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Common
 
       
+      # Spree view helpers
+
       spree_helpers = %W{
         Spree::BaseHelper
         Spree::BaseHelper
