@@ -32,7 +32,7 @@ module SpreeComfy
 
       Comfy::Cms::ContentController.send :include, Spree::ViewContext
       Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Common
-
+      Comfy::Cms::ContentController.send :include, Spree::Core::Engine.routes.url_helpers      
       
       # Spree view helpers
 
@@ -42,13 +42,13 @@ module SpreeComfy
         Spree::OrdersHelper
         Spree::StoreHelper
         SpreeComfy::Helper
+        
       }
-      
+      # Comfy::Admin::Cms::PagesController.send spree_comfy_spree_engine.routes.url_helpers      
       spree_helpers.each {|x| 
         Comfy::Cms::ContentController.send :helper, Object.const_get(x)
         Comfy::Admin::Cms::PagesController.send :helper, Object.const_get(x)
       }
-
       Comfy::Cms::Layout.send :include, SpreeComfy::Layout
 
     end
