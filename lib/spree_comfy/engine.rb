@@ -44,11 +44,12 @@ module SpreeComfy
         SpreeComfy::Helper
         
       }
-      # Comfy::Admin::Cms::PagesController.send spree_comfy_spree_engine.routes.url_helpers      
+
       spree_helpers.each {|x| 
         Comfy::Cms::ContentController.send :helper, Object.const_get(x)
         Comfy::Admin::Cms::PagesController.send :helper, Object.const_get(x)
       }
+
       Comfy::Cms::Layout.send :include, SpreeComfy::Layout
 
     end
