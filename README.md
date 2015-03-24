@@ -34,6 +34,13 @@ bundle
 bundle exec rails g spree_comfy:install
 ```
 
+Auth with devise
+----------------
+
+https://github.com/hazg/spree_comfy_auth_devise
+
+
+
 Testing
 -------
 
