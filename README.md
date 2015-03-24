@@ -9,7 +9,7 @@ Installation
 Add spree_comfy to your Gemfile:
 
 ```ruby
-gem 'spree_comfy'
+gem 'spree_comfy', github: 'hazg/spree_comfy'
 ```
 
 In initializers/comfortable-mexican-sofa.rb
