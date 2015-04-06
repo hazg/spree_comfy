@@ -33,6 +33,12 @@ Bundle your dependencies and run the installation generator:
 bundle
 bundle exec rails g spree_comfy:install
 ```
+Use
+---
+Render snippets:
+```erb
+<%= comfy_snippet('snippet-identifier') %>
+```
 
 Auth with devise
 ----------------
