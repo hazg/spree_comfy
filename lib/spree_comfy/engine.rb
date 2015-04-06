@@ -44,7 +44,6 @@ module SpreeComfy
         SpreeComfy::Helper
         
       }
-
       spree_helpers.each {|x| 
         Comfy::Cms::ContentController.send :helper, Object.const_get(x)
         Comfy::Admin::Cms::PagesController.send :helper, Object.const_get(x)
