@@ -37,8 +37,8 @@ bundle exec rails g spree_comfy:install
 Use
 ---
 Render snippets:
-```erb
-<%= comfy_snippet('snippet-identifier') %>
+```slim
+= comfy_snippet('snippet-identifier')
 ```
 Creating navigation:
 add category (for ex. "In top menu"), add {{ cms:page:menu_name:string }} to pages layout.
