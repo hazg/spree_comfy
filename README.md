@@ -33,11 +33,24 @@ Bundle your dependencies and run the installation generator:
 bundle
 bundle exec rails g spree_comfy:install
 ```
+
 Use
 ---
 Render snippets:
 ```erb
 <%= comfy_snippet('snippet-identifier') %>
+```
+Creating navigation:
+Add category (for ex. "In top menu")
+Add {{ cms:page:menu_name:string }} to pages layout.
+```slim
+ul#top-menu
+  - cms_site.pages.for_category('In top menu').each do |page|
+  li
+    - if not (label = cms_block_content('menu_name', page)).empty?
+      a href=page.slug =label
+    - else
+      a href=page.slug =page.label
 ```
 
 Auth with devise

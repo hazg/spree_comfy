@@ -1,6 +1,6 @@
 module SpreeComfy
   module Helper
-
+    
     def current_currency
         Spree::Config[:currency]
     end
