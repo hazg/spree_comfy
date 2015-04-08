@@ -3,6 +3,9 @@ SpreeComfy
 
 Add comfortable-mexican-sofa to spree commerce
 
+Spree 3.0 is not tested! Feel free to push commits.
+Master branch work with spree 2-4-stable.
+
 Installation
 ------------
 
