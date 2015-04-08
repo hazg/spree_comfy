@@ -2,6 +2,7 @@ SpreeComfy
 ==========
 
 Add comfortable-mexican-sofa to spree commerce
+Tested with spree 2.4
 
 Installation
 ------------
