@@ -48,11 +48,11 @@ add category (for ex. "In top menu"), add {{ cms:page:menu_name:string }} to pag
 ```slim
 ul#top-menu
   - cms_site.pages.for_category('In top menu').each do |page|
-  li
-    - if not (label = cms_block_content('menu_name', page)).empty?
-      a href=page.slug =label
-    - else
-      a href=page.slug =page.label
+    li
+      - if not (label = cms_block_content('menu_name', page)).empty?
+        a href=page.slug =label
+      - else
+        a href=page.slug =page.label
 ```
 
 Auth with devise
