@@ -3,8 +3,7 @@ SpreeComfy
 
 Add comfortable-mexican-sofa to spree commerce
 
-Spree 3.0 is not tested! Feel free to push commits.
-Master branch work with spree 2-4-stable.
+for spree 3-0-stable branch
 
 Installation
 ------------
@@ -81,4 +80,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_comfy/factories'
 ```
 
-Copyright (c) 2014 [name of extension creator], released under the New BSD License
+Copyright (c) 2014 Aleksandr Aleksandrov, released under the New BSD License
