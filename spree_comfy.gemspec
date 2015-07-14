@@ -2,8 +2,8 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_comfy'
-  s.version     = '2.1.0'
-  s.summary     = 'comfortable-mexican-sofa integration'
+  s.version     = '3.0.0'
+  s.summary     = 'comfortable-mexican-sofa integration for spree'
   s.description = ''
   s.required_ruby_version = '>= 1.9.3'
 
