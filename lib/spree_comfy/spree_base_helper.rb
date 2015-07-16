@@ -1,15 +1,17 @@
+require 'comfortable_mexican_sofa'
+
 module Spree
   module BaseHelper
     
     def comfy_snippet(name)
-      if snippet = Comfy::Cms::Snippet.find_by_identifier(name)
+      if snippet = ::Comfy::Cms::Snippet.find_by_identifier(name)
         return snippet.content.html_safe
       end
       false
     end
     
     def cms_site
-      return @cms_site if @cms_site 
+      return @cms_site if @cms_site
       @cms_site ||= if params[:site_id]
         ::Comfy::Cms::Site.find_by_id(params[:site_id])
       else
@@ -28,7 +30,7 @@ module Spree
         I18n.locale = @cms_site.locale
       else
         I18n.locale = I18n.default_locale
-        raise ActionController::RoutingError.new('Site Not Found')
+        false
       end
       @cms_site
     end

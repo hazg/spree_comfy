@@ -17,6 +17,8 @@ module SpreeComfy
       end
       Spree::Admin::BaseController.send :include, SpreeComfy::AdminHelper
       
+      Spree::Core::Engine.send :include, SpreeComfy
+
       # Spree controller helpers 
 
       spree_includes = %W{

@@ -20,6 +20,8 @@ module SpreeComfy
     
   end
 
+  require 'comfortable_mexican_sofa'
+  
   module AdminHelper
     def self.included(base)
       base.before_action :load_admin_site
