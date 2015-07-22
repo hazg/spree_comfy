@@ -20,8 +20,8 @@ module SpreeComfy
 
       spree_includes = %W{
         Spree::Core::ControllerHelpers::Auth
-        Spree::Core::ControllerHelpers::Store
       }
+      #Spree::Core::ControllerHelpers::Store
       
       spree_includes << 'SpreeI18n::ControllerLocaleHelper' if defined?(SpreeI18n)
       
