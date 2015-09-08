@@ -2,20 +2,22 @@ module SpreeComfy
   class Engine < Rails::Engine
     require 'spree/core'
     require 'comfortable_mexican_sofa'
-    isolate_namespace Spree
+    require 'comfortable_mexican_sofa/routes/cms'
+
     engine_name 'spree_comfy'
 
     # use rspec for tests
     config.generators do |g|
       g.test_framework :rspec
     end
-
+    
     def self.activate
 
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
       
+
       
       # Spree controller helpers 
 
@@ -35,6 +37,7 @@ module SpreeComfy
       Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Common
       Comfy::Cms::ContentController.send :include, Spree::Core::Engine.routes.url_helpers      
       
+
       # Spree view helpers
 
       spree_helpers = %W{

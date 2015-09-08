@@ -1,6 +1,14 @@
 module SpreeComfy
   module Helper
     
+    def method_missing(method_id, *arguments, &block)
+      if Rails.application.routes.url_helpers.methods.include?(method_id)
+        Rails.application.routes.url_helpers.send method_id, arguments
+      else
+        super
+      end
+    end
+
     def current_currency
         Spree::Config[:currency]
     end
