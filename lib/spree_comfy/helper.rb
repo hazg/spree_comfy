@@ -1,8 +1,11 @@
 module SpreeComfy
   module Helper
-    
+
+    #
+    # TODO: Rewrite. Wrong way.
+    #
     def method_missing(method_id, *arguments, &block)
-      if Rails.application.routes.url_helpers.methods.include?(method_id)
+      if method_id.to_s.end_with?('_path', '_url') and Rails.application.routes.url_helpers.methods.include?(method_id)
         Rails.application.routes.url_helpers.send method_id, arguments
       else
         super
