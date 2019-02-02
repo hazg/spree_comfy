@@ -21,8 +21,8 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 3.0'
-  s.add_dependency 'comfortable_mexican_sofa', '~> 1.12.7'
+  s.add_dependency 'spree_core', '~> 3.6'
+  s.add_dependency 'comfortable_mexican_sofa'
 
   s.add_development_dependency 'capybara', '~> 2.1'
   s.add_development_dependency 'coffee-rails'
