@@ -1,7 +1,4 @@
 module SpreeComfy
   module ControllerHelper
-    
-
-    
   end
-end  
+end

@@ -18,7 +18,7 @@ module SpreeComfy
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
 
-
+      Spree::Admin::BaseController.send :include, ComfyAdminBaseController
 
       # Spree controller helpers
 
@@ -30,6 +30,7 @@ module SpreeComfy
       spree_includes << 'SpreeI18n::ControllerLocaleHelper' if defined?(SpreeI18n)
 
       spree_includes.each {|x|
+        Comfy::Admin::BaseController.send :include, Object.const_get(x)
         Comfy::Cms::ContentController.send :include, Object.const_get(x)
         Comfy::Admin::Cms::PagesController.send :include, Object.const_get(x)
       }
@@ -57,7 +58,9 @@ module SpreeComfy
       }
 
       Comfy::Cms::Layout.send :include, SpreeComfy::Layout
-
+      # TODO: Make it work
+      Spree::Admin::BaseController.send :include, ComfortableMexicanSofa::Engine.routes.named_routes.url_helpers_module
+      Spree::Admin::BaseController.send :include, ComfyAdminBaseController
     end
 
     config.to_prepare &method(:activate).to_proc
