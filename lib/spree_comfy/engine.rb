@@ -58,8 +58,10 @@ module SpreeComfy
       }
 
       Comfy::Cms::Layout.send :include, SpreeComfy::Layout
+      Spree::Admin::BaseController.send :include, SpreeComfy::Layout
       # TODO: Make it work
       Spree::Admin::BaseController.send :include, ComfortableMexicanSofa::Engine.routes.named_routes.url_helpers_module
+
       #Spree::Admin::BaseController.send :include, ComfyAdminBaseController
     end
 

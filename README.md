@@ -1,9 +1,15 @@
 SpreeComfy
 ==========
 
-Add comfortable-mexican-sofa to spree commerce
+Adds functionality of [comfortable-mexican-sofa](https://github.com/comfy/comfortable-mexican-sofa) CMS to [spree commerce](https://github.com/spree/spree)
 
-for spree 3-0-stable branch
+for spree [3-6-stable](https://github.com/spree/spree/tree/3-6-stable) branch
+
+Before installation
+-------------------
+Install comfy to your application, make new site.
+
+**WARNING**: in this version there can be only one site with id = 1 (((
 
 Installation
 ------------
@@ -11,6 +17,7 @@ Installation
 Add spree_comfy to your Gemfile:
 
 ```ruby
+gem 'comfortable_mexican_sofa'
 gem 'spree_comfy', github: 'hazg/spree_comfy'
 ```
 
@@ -25,7 +32,7 @@ config/routes.rb example
 mount Spree::Core::Engine, at: '/'
 mount SpreeComfy::Engine, at: '/'
 
-comfy_route :cms_admin, path: '/cms_admin'
+comfy_route :cms_admin, path: '/admin' # Same as spree admin path
 comfy_route :cms, path: '/', sitemap: false
 ```
 
@@ -60,24 +67,4 @@ Auth with devise
 
 https://github.com/hazg/spree_comfy_auth_devise
 
-
-
-Testing
--------
-
-Be sure to bundle your dependencies and then create a dummy test app for the specs to run against.
-
-```shell
-bundle
-bundle exec rake test_app
-bundle exec rspec spec
-```
-
-When testing your applications integration with this extension you may use it's factories.
-Simply add this require statement to your spec_helper:
-
-```ruby
-require 'spree_comfy/factories'
-```
-
-Copyright (c) 2014 Aleksandr Aleksandrov, released under the New BSD License
+Copyright (c) 2014-2019 Aleksandr Aleksandrov, released under the New BSD License

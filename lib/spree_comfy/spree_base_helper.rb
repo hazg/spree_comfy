@@ -7,15 +7,15 @@ module Spree
       end
       false
     end
-    
+
     def cms_site
-      return @cms_site if @cms_site 
+      return @cms_site if @cms_site
       @cms_site ||= if params[:site_id]
         ::Comfy::Cms::Site.find_by_id(params[:site_id])
       else
         ::Comfy::Cms::Site.find_site(request.host_with_port.downcase, request.fullpath)
       end
-      
+
       if @cms_site
         if @cms_site.path.present? && !params[:site_id]
           if params[:cms_path] && params[:cms_path].match(/\A#{@cms_site.path}/)

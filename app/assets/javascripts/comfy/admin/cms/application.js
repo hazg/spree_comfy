@@ -38,3 +38,19 @@
 //= require comfy/admin/cms/wysiwyg
 
 //= require comfy/admin/cms/custom
+
+$('#comfy .btn.btn-secondary').addClass('btn-success');
+$('#comfy .btn-group.btn-group-sm .btn-outline-secondary').addClass('btn-primary');
+
+$('#comfy .btn-group.btn-group-sm').each(function () {
+  var edits = $('.btn.btn-outline-secondary.btn-primary', this);
+  if (edits.size() == 2) {
+    $('.btn.btn-outline-secondary.btn-primary:nth-child(1)', this).html('<span class="icon icon-add"></span>');
+    $('.btn.btn-outline-secondary.btn-primary:nth-child(2)', this).html('<span class="icon icon-edit"></span>');
+  } else {
+    $('.btn.btn-outline-secondary.btn-primary', this).html('<span class="icon icon-edit"></span>');
+  }
+  $('.btn.btn-danger', this).html('<span class="icon icon-delete"></span>');
+});
+
+

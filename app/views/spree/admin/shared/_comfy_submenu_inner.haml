@@ -1,5 +1,7 @@
 -# if @site && !@site.new_record?
-
+%li.nav-item
+  = active_link_to "/admin/sites/", class: "sidebar-menu-item" do
+    = t('comfy.admin.cms.base.sites')
 %li.nav-item
   = active_link_to "/admin/sites/1/layouts", class: "sidebar-menu-item" do
     = t('comfy.admin.cms.base.layouts')
