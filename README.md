@@ -1,9 +1,11 @@
 SpreeComfy
 ==========
 
-Adds functionality of [comfortable-mexican-sofa](https://github.com/comfy/comfortable-mexican-sofa) CMS to [spree commerce](https://github.com/spree/spree)
+Content management system based on [comfortable-mexican-sofa](https://github.com/comfy/comfortable-mexican-sofa) for [spree commerce](https://github.com/spree/spree). This is not a spree_static_content, it is a full-fledged CMS with image upload, page templates and a tree structure of content.
 
-for spree [3-6-stable](https://github.com/spree/spree/tree/3-6-stable) branch
+
+* for spree [3-6-stable](https://github.com/spree/spree/tree/3-6-stable) branch
+
 
 Before installation
 -------------------
