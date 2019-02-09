@@ -18,7 +18,7 @@ module SpreeComfy
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
 
-      Spree::Admin::BaseController.send :include, ComfyAdminBaseController
+      #Spree::Admin::BaseController.send :include, ComfyAdminBaseController
 
       # Spree controller helpers
 
@@ -46,22 +46,22 @@ module SpreeComfy
 
       # Spree view helpers
 
-      spree_helpers = %W{
-        Spree::BaseHelper
-        Spree::OrdersHelper
-        SpreeComfy::Helper
-      }
+      # spree_helpers = %W{
+      #   Spree::BaseHelper
+      #   Spree::OrdersHelper
+      #   SpreeComfy::Helper
+      # }
 
-      spree_helpers.each {|x|
-        Comfy::Cms::ContentController.send :helper, Object.const_get(x)
-        Comfy::Admin::Cms::PagesController.send :helper, Object.const_get(x)
-      }
+      # spree_helpers.each {|x|
+      #   Comfy::Cms::ContentController.send :helper, Object.const_get(x)
+      #   Comfy::Admin::Cms::PagesController.send :helper, Object.const_get(x)
+      # }
 
-      Comfy::Cms::Layout.send :include, SpreeComfy::Layout
-      Spree::Admin::BaseController.send :include, SpreeComfy::Layout
+      # Comfy::Cms::Layout.send :include, SpreeComfy::Layout
+      # Spree::Admin::BaseController.send :include, SpreeComfy::Layout
       # TODO: Make it work
       #Spree::Admin::BaseController.send :include, ComfortableMexicanSofa::Engine.routes.named_routes.url_helpers_module
-      Spree::Admin::BaseController.send :include, ComfortableMexicanSofa::Engine.routes.url_helpers
+      #Spree::Admin::BaseController.send :include, ComfortableMexicanSofa::Engine.routes.url_helpers
 
       #Spree::Admin::BaseController.send :include, ComfyAdminBaseController
     end
