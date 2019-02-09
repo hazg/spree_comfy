@@ -11,7 +11,6 @@ Before installation
 -------------------
 Install comfy to your application, make new site.
 
-**WARNING**: in this version there can be only one site with id = 1 (((
 
 Installation
 ------------
