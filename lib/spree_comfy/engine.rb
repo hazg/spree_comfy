@@ -45,28 +45,34 @@ module SpreeComfy
       Spree::Core::ControllerHelpers.constants.each do |x|
         Rails.logger.info(x) if Rails.env.development?
         Comfy::Cms::BaseController.send :include, Object.const_get("Spree::Core::ControllerHelpers::#{x}")
-      #  Comfy::Admin::BaseController.send :include, Object.const_get("Spree::Core::ControllerHelpers::#{x}")
+        Comfy::Admin::BaseController.send :include, Object.const_get("Spree::Core::ControllerHelpers::#{x}")
       end
 
       #Comfy::Cms::BaseController.send :include, SpreeComfy::ApplicationHelper
-      #Comfy::Cms::BaseController.send :include, Spree::BaseHelper
-      #Comfy::Cms::BaseController.send :include, Spree::ViewContext
+      #Comfy::Admin::Cms::BaseController.send :include, SpreeComfy::ApplicationHelper
+      Comfy::Cms::BaseController.send :include, Spree::BaseHelper
+      Comfy::Cms::BaseController.send :include, Spree::ViewContext
       # Rails.logger.info('-- FRONT') if Rails.env.development?
       # Spree::Frontend::ControllerHelpers.constants.each do |x|
       #   Rails.logger.info(x) if Rails.env.development?
       #   Comfy::Cms::BaseController.send :include, Spree::BaseHelper
       # end
 
-      #Comfy::Admin::Cms::PagesController.send :include, Spree::BaseHelper
+      Comfy::Admin::Cms::PagesController.send :include, Spree::BaseHelper
 
 
 
 
-      #spree_includes << 'SpreeI18n::ControllerLocaleHelper' if defined?(SpreeI18n)
+      Comfy::Cms::BaseController.send :include, SpreeI18n::ControllerLocaleHelper if defined?(SpreeI18n)
+      
+      
+      
+      
+      
       Comfy::Cms::BaseController.send :include, Spree::BaseHelper
       Comfy::Cms::ContentController.send :include, Spree::ViewContext
-      Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Common
-      Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Order
+      #Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Common
+      #Comfy::Cms::ContentController.send :include, Spree::Core::ControllerHelpers::Order
       Comfy::Cms::BaseController.send :include, Spree::Core::Engine.routes.url_helpers
 
       # Spree view helpers
@@ -82,8 +88,8 @@ module SpreeComfy
         Comfy::Admin::Cms::PagesController.send :helper, Object.const_get(x)
       }
 
-      #Comfy::Cms::Layout.send :include, SpreeComfy::Layout
-      #Spree::Admin::BaseController.send :include, SpreeComfy::Layout
+      Comfy::Cms::Layout.send :include, SpreeComfy::Layout
+      Spree::Admin::BaseController.send :include, SpreeComfy::Layout
 
       # TODO: Make it work
       #Spree::Admin::BaseController.send :include, ComfortableMexicanSofa::Engine.routes.named_routes.url_helpers_module

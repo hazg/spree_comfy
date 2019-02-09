@@ -3,6 +3,7 @@ module SpreeComfy
     def method_missing method, *args, &block
       #if method.to_s.end_with?('_path') or method.to_s.end_with?('_url')
         if main_app.respond_to?(method)
+          Rails.logger.info("***************** #{method} *************************")
           main_app.send(method, *args)
         else
           super
@@ -15,6 +16,7 @@ module SpreeComfy
     def respond_to?(method, *args)
       #if method.to_s.end_with?('_path') or method.to_s.end_with?('_url')
         if main_app.respond_to?(method)
+          Rails.logger.info("***************** #{method} *************************")
           true
         else
           super
