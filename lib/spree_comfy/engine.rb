@@ -22,7 +22,7 @@ module SpreeComfy
       Comfy::Cms::BaseController.send :helper, Spree::BaseHelper
       Comfy::Cms::BaseController.send :helper, SpreeComfy::ComfyHelper
       Comfy::Admin::BaseController.send :include, Spree::Core::ControllerHelpers::Auth
-      Comfy::Admin::BaseController.send :include, Spree::Core::ControllerHelpers::Store######
+      Comfy::Admin::BaseController.send :include, Spree::Core::ControllerHelpers::Store
 
       Spree::Admin::BaseController.send :include, SpreeComfy::SpreeAdminHelper
     end
