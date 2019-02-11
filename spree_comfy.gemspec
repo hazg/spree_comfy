@@ -7,7 +7,7 @@ require "spree_comfy/version"
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_comfy'
-  s.version     = SpreeComfy::VERSION 
+  s.version     = SpreeComfy::VERSION
   s.summary     = 'comfortable-mexican-sofa integration'
   s.description = 'Add comfortable mexican sofa CMS to spree commerce'
   s.required_ruby_version = '>= 1.9.3'
