@@ -1,6 +1,8 @@
 SpreeComfy
 ==========
 
+[![Build Status](https://travis-ci.org/hazg/spree_comfy.svg?branch=master)](https://travis-ci.org/hazg/spree_comfy)
+
 Content management system based on [comfortable-mexican-sofa](https://github.com/comfy/comfortable-mexican-sofa) for [spree commerce](https://github.com/spree/spree). This is not a spree_static_content, it is a full-fledged CMS with image upload, page templates and a tree structure of content.
 
 
