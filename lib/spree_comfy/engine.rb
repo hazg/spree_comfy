@@ -2,7 +2,6 @@ module SpreeComfy
   class Engine < Rails::Engine
     require 'spree/core'
     require 'comfortable_mexican_sofa'
-    require 'comfortable_mexican_sofa/routes/cms'
 
     engine_name 'spree_comfy'
 
@@ -21,13 +20,13 @@ module SpreeComfy
 
       Comfy::Cms::BaseController.send :helper, Spree::BaseHelper
       Comfy::Cms::BaseController.send :helper, SpreeComfy::ComfyHelper
-      Comfy::Admin::BaseController.send :include, Spree::Core::ControllerHelpers::Auth
-      Comfy::Admin::BaseController.send :include, Spree::Core::ControllerHelpers::Store
+      Comfy::Admin::Cms::BaseController.send :include, Spree::Core::ControllerHelpers::Auth
+      Comfy::Admin::Cms::BaseController.send :include, Spree::Core::ControllerHelpers::Store
       Spree::Admin::BaseController.send :include, SpreeComfy::SpreeAdminHelper
 
       Comfy::Cms::Layout.send :include, SpreeComfy::Layout
-
-
+      #Comfy::Admin::Cms::BaseController.send :include, SpreeComfy::AdminLayout
+      
     end
 
     config.to_prepare &method(:activate).to_proc

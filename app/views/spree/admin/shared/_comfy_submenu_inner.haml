@@ -6,4 +6,5 @@
   = configurations_sidebar_menu_item(t('comfy.admin.cms.base.files'), "#{Spree::Config.admin_path}/sites/#{@site.id}/files")
 
   = cms_hook :navigation
-  = comfy_admin_partial "comfy/admin/cms/partials/navigation_inner"
+  - if defined?(comfy_admin_partial)
+    = comfy_admin_partial "comfy/admin/cms/partials/navigation_inner"
