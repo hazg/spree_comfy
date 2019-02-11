@@ -26,7 +26,7 @@ module SpreeComfy
 
       Comfy::Cms::Layout.send :include, SpreeComfy::Layout
       Comfy::Admin::Cms::BaseController.send :include, SpreeComfy::AdminLayout
-      
+
     end
 
     config.to_prepare &method(:activate).to_proc
