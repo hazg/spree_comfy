@@ -1,3 +1,3 @@
 module SpreeComfy
-  VERSION = "0.0.1"
+  VERSION = "3.6.1"
 end

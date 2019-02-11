@@ -1,39 +1,44 @@
 SpreeComfy
 ==========
 
-Add comfortable-mexican-sofa to spree commerce
-Tested with spree 2.4
-For spree 3.0 use 3-0-stable branch.
+Content management system based on [comfortable-mexican-sofa](https://github.com/comfy/comfortable-mexican-sofa) for [spree commerce](https://github.com/spree/spree). This is not a spree_static_content, it is a full-fledged CMS with image upload, page templates and a tree structure of content.
+
+
+spree >= [3-6-stable](https://github.com/spree/spree/tree/3-6-stable)
+
 
 Installation
 ------------
 
-Add spree_comfy to your Gemfile:
-
+Gemfile:
 ```ruby
-gem 'spree_comfy', github: 'hazg/spree_comfy'
+# order is important
+gem 'spree'
+gem 'comfortable_mexican_sofa'
+gem 'spree_comfy', branch: 'integrated', github: 'hazg/spree_comfy'
+gem 'spree_auth_devise'
 ```
 
-In initializers/comfortable-mexican-sofa.rb
-```ruby
-config.reveal_cms_partials = true
-```
-... to see additional menu items in cms admin area
-
-config/routes.rb example
-```ruby
-mount Spree::Core::Engine, :at => '/'
-mount SpreeComfy::Engine, :at => '/'
-
-comfy_route :cms_admin, :path => '/cms_admin'
-comfy_route :cms, :path => '/', :sitemap => false
-```
-
-Bundle your dependencies and run the installation generator:
-
-```shell
+Run bundler:
+```bash
 bundle
-bundle exec rails g spree_comfy:install
+```
+
+Generate installs:
+```bash
+bundle exec rails generate comfy:cms
+bundle exec rails generate spree_comfy:install
+bundle exec rails generate spree:install --user_class=Spree::User
+```
+
+Now take a look inside your config/routes.rb file. You'll see where routes attach for the admin area and content serving. Make sure that content serving route appears as a very last item or it will make all other routes to be inaccessible.
+
+```ruby
+mount Spree::Core::Engine, at: '/'
+mount SpreeComfy::Engine, at: '/'
+
+comfy_route :cms_admin, path: '/admin'
+comfy_route :cms, path: '/', sitemap: false
 ```
 
 Use
@@ -60,24 +65,4 @@ Auth with devise
 
 https://github.com/hazg/spree_comfy_auth_devise
 
-
-
-Testing
--------
-
-Be sure to bundle your dependencies and then create a dummy test app for the specs to run against.
-
-```shell
-bundle
-bundle exec rake test_app
-bundle exec rspec spec
-```
-
-When testing your applications integration with this extension you may use it's factories.
-Simply add this require statement to your spec_helper:
-
-```ruby
-require 'spree_comfy/factories'
-```
-
-Copyright (c) 2014 [name of extension creator], released under the New BSD License
+Copyright (c) 2014-2019 Aleksandr Aleksandrov, released under the New BSD License

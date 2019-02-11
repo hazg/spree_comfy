@@ -1,6 +1,8 @@
 en:
   spree_comfy:
+    tab: 'Content'
     site: Site
+
 
   spree:
     admin:

@@ -22,6 +22,13 @@ module SpreeComfy
         inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', " *= require spree/backend/spree_comfy\n", :before => /\*\//, :verbose => true
       end
 
+      def generate_routing
+        route_string = <<~RUBY
+          mount SpreeComfy::Engine, at: '/'
+        RUBY
+        route route_string
+      end
+
       def add_migrations
         run 'bundle exec rake railties:install:migrations FROM=spree_comfy'
       end

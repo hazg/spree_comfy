@@ -1,0 +1,10 @@
+- if @site && !@site.new_record?
+  = configurations_sidebar_menu_item(t('comfy.admin.cms.base.sites'), "#{Spree::Config.admin_path}/sites/")
+  = configurations_sidebar_menu_item(t('comfy.admin.cms.base.layouts'), "#{Spree::Config.admin_path}/sites/#{@site.id}/layouts")
+  = configurations_sidebar_menu_item(t('comfy.admin.cms.base.pages'), "#{Spree::Config.admin_path}/sites/#{@site.id}/pages")
+  = configurations_sidebar_menu_item(t('comfy.admin.cms.base.snippets'), "#{Spree::Config.admin_path}/sites/#{@site.id}/snippets")
+  = configurations_sidebar_menu_item(t('comfy.admin.cms.base.files'), "#{Spree::Config.admin_path}/sites/#{@site.id}/files")
+
+  = cms_hook :navigation
+  - if defined?(comfy_admin_partial)
+    = comfy_admin_partial "comfy/admin/cms/partials/navigation_inner"
