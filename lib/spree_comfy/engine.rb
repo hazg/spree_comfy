@@ -23,8 +23,11 @@ module SpreeComfy
       Comfy::Cms::BaseController.send :helper, SpreeComfy::ComfyHelper
       Comfy::Admin::BaseController.send :include, Spree::Core::ControllerHelpers::Auth
       Comfy::Admin::BaseController.send :include, Spree::Core::ControllerHelpers::Store
-
       Spree::Admin::BaseController.send :include, SpreeComfy::SpreeAdminHelper
+
+      Comfy::Cms::Layout.send :include, SpreeComfy::Layout
+
+
     end
 
     config.to_prepare &method(:activate).to_proc

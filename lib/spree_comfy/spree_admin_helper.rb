@@ -13,7 +13,7 @@ module SpreeComfy
       else
         I18n.locale = ComfortableMexicanSofa.config.admin_locale || I18n.default_locale
         flash[:danger] = I18n.t("comfy.admin.cms.base.site_not_found")
-        return redirect_to(new_comfy_admin_cms_site_path)
+        return redirect_to("#{Spree::Config.admin_path}/sites/new")
       end
     end
 
