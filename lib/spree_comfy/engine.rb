@@ -25,7 +25,7 @@ module SpreeComfy
       Spree::Admin::BaseController.send :include, SpreeComfy::SpreeAdminHelper
 
       Comfy::Cms::Layout.send :include, SpreeComfy::Layout
-      #Comfy::Admin::Cms::BaseController.send :include, SpreeComfy::AdminLayout
+      Comfy::Admin::Cms::BaseController.send :include, SpreeComfy::AdminLayout
       
     end
 

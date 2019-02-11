@@ -39,6 +39,7 @@
 
 //= require comfy/admin/cms/custom
 
+
 $('#comfy .btn.btn-secondary').addClass('btn-success');
 $('#comfy .btn-group.btn-group-sm .btn-outline-secondary').addClass('btn-primary');
 
@@ -52,5 +53,3 @@ $('#comfy .btn-group.btn-group-sm').each(function () {
   }
   $('.btn.btn-danger', this).html('<span class="icon icon-delete"></span>');
 });
-
-

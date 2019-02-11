@@ -4,44 +4,41 @@ SpreeComfy
 Content management system based on [comfortable-mexican-sofa](https://github.com/comfy/comfortable-mexican-sofa) for [spree commerce](https://github.com/spree/spree). This is not a spree_static_content, it is a full-fledged CMS with image upload, page templates and a tree structure of content.
 
 
-* for spree [3-6-stable](https://github.com/spree/spree/tree/3-6-stable) branch
-
-
-Before installation
--------------------
-Install comfy to your application, make new site.
+spree >= [3-6-stable](https://github.com/spree/spree/tree/3-6-stable)
 
 
 Installation
 ------------
 
-Add spree_comfy to your Gemfile:
-
+Gemfile:
 ```ruby
+# order is important
+gem 'spree'
 gem 'comfortable_mexican_sofa'
-gem 'spree_comfy', github: 'hazg/spree_comfy'
+gem 'spree_comfy', branch: 'integrated', github: 'hazg/spree_comfy'
+gem 'spree_auth_devise'
 ```
 
-In initializers/comfortable-mexican-sofa.rb
-```ruby
-config.reveal_cms_partials = true
+Run bundler:
+```bash
+bundle
 ```
-... to see additional menu items in cms admin area
 
-config/routes.rb example
+Generate installs:
+```bash
+bundle exec rails generate comfy:cms
+bundle exec rails generate spree_comfy:install
+bundle exec rails generate spree:install --user_class=Spree::User
+```
+
+Now take a look inside your config/routes.rb file. You'll see where routes attach for the admin area and content serving. Make sure that content serving route appears as a very last item or it will make all other routes to be inaccessible.
+
 ```ruby
 mount Spree::Core::Engine, at: '/'
 mount SpreeComfy::Engine, at: '/'
 
-comfy_route :cms_admin, path: '/admin' # Same as spree admin path
+comfy_route :cms_admin, path: '/admin'
 comfy_route :cms, path: '/', sitemap: false
-```
-
-Bundle your dependencies and run the installation generator:
-
-```shell
-bundle
-bundle exec rails g spree_comfy:install
 ```
 
 Use
