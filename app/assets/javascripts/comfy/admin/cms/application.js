@@ -1,4 +1,4 @@
-//#= require rails-ujs
+//= require rails-ujs
 //require jquery3
 
 //= require comfy/vendor/codemirror
@@ -36,6 +36,8 @@
 //= require comfy/admin/cms/slugify
 //= require comfy/admin/cms/timepicker
 //= require comfy/admin/cms/wysiwyg
+
+//= require jquery.remotipart
 
 //= require comfy/admin/cms/custom
 

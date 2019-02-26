@@ -17,10 +17,19 @@ body#comfy
       position: relative
     .page-header .btn
       float: right
-    ul.list li .row .item .item-content
-      .item-title a
-        font-size: 1.5rem
-      .item-meta
-        font-size: 1.2rem
+    ul.list.sortable li
+      ul
+        margin-left: 20px
+      //.row .item .item-controls .toggle
+      //  display: none
+    ul.list li
+      .row
+        .btn-group:
+          float: right
+        .item .item-content
+          .item-title a
+            font-size: 1.5rem
+          .item-meta
+            font-size: 1.2rem
     .svg-inline--fa.fa-w-14
       font-size: 20px
