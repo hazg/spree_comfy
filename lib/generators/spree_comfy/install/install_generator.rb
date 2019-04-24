@@ -1,3 +1,4 @@
+# TODO: Install spree_comfy.haml template
 module SpreeComfy
   module Generators
     class InstallGenerator < Rails::Generators::Base
