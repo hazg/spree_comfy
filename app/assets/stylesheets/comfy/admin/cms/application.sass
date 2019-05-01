@@ -1,4 +1,3 @@
-//@import "comfy/vendor/bootstrap/bootstrap"
 @import "spree/backend/global/variables"
 @import "bootstrap4_variables"
 @import "comfy/vendor/codemirror"
@@ -12,6 +11,11 @@
 @import "comfy/admin/cms/custom"
 
 body#comfy
+  #cms-main
+    ul.list.sortable
+      li
+        list-style: none
+//body#comfy
   #cms-main
     .form-actions
       position: relative
