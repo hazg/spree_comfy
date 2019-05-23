@@ -1,6 +1,6 @@
 # Title
 Deface::Override.new(
-  virtual_path: 'spree/shared/_head',
+  virtual_path: 'spree/admin/shared/_head',
   name: 'integrate_head_title',
   replace: 'title',
   partial: 'spree/admin/shared/comfy_head_title'
