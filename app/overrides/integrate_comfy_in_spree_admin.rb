@@ -1,10 +1,10 @@
 # Title
-Deface::Override.new(
-  virtual_path: 'spree/admin/shared/_head',
-  name: 'integrate_head_title',
-  replace: 'title',
-  partial: 'spree/admin/shared/comfy_head_title'
-)
+# Deface::Override.new(
+#   virtual_path: 'spree/admin/shared/_head',
+#   name: 'integrate_head_title',
+#   replace: 'title',
+#   partial: 'spree/admin/shared/comfy_head_title'
+# )
 
 # Left menu
 Deface::Override.new(
