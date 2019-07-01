@@ -1,5 +1,5 @@
 module SpreeComfy
-  module SpreeAdminHelper
+  module SpreeBackendHelper
     extend ActiveSupport::Concern
 
     included do

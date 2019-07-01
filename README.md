@@ -52,14 +52,15 @@ Render snippets:
 Creating navigation:
 add category (for ex. "In top menu"), add {{ cms:page:menu_name:string }} to pages layout.
 
-```slim
-ul#top-menu
-  - cms_site.pages.for_category('In top menu').each do |page|
-    li
-      - if not (label = cms_block_content('menu_name', page)).empty?
-        a href=page.full_path =label
-      - else
-        a href=page.full_path =page.label
+```haml
+- @cms_site.pages.for_category('In top menu').each do |page|
+  %li
+    - if not (label = cms_fragment_render('top-menu-name', page)).empty?
+      = link_to label, page.full_path
+      -# %a= href=page.full_path =label
+    - else
+      = link_to page.label, page.full_path
+      -# %a= href=page.full_path =page.label
 ```
 
 Auth with devise

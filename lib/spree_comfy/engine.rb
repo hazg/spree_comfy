@@ -27,11 +27,11 @@ module SpreeComfy
       Comfy::Admin::BaseController.send :include, Spree::Core::ControllerHelpers::Auth
       Comfy::Admin::BaseController.send :include, Spree::Core::ControllerHelpers::Store
 
-      Spree::Admin::BaseController.send :include, SpreeComfy::SpreeAdminHelper
+      Spree::Admin::BaseController.send :include, SpreeComfy::SpreeBackendHelper
+      Spree::BaseController.send :include, SpreeComfy::SpreeFrontendHelper
+      # Spree::BaseController.send :include, ComfortableMexicanSofa::RenderMethods
 
       Comfy::Cms::Layout.send :include, SpreeComfy::Layout
-      #Comfy::Admin::Cms::PagesController.send :include, SpreeComfy::AdminLayout
-
     end
 
     config.to_prepare &method(:activate).to_proc

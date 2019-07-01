@@ -49,3 +49,37 @@ Deface::Override.new(
     id: "<%= (controller.class < Comfy::Admin::Cms::BaseController) ? 'cms-main' : ''%>"
   }
 )
+
+# Space for right column
+Deface::Override.new(
+  virtual_path: 'spree/layouts/admin',
+  name: 'comfy_admin_space_for_right_column',
+  set_attributes: 'main > .row #content',
+  attributes: {
+    class: "col-lg-10"
+  }
+)
+
+# Right column
+Deface::Override.new(
+  virtual_path: 'spree/layouts/admin',
+  name: 'comfy_admin_right_column',
+  insert_bottom: 'main > .row',
+  text: '<div class="col-lg-2"><%= render partial: "layouts/comfy/admin/cms/right" %>'
+)
+
+# # Flash
+# Deface::Override.new(
+#   virtual_path: 'spree/layouts/admin',
+#   name: 'comfy_admin_flash',
+#   insert_top: 'main > .row',
+#   text: '<%=  render partial: "layouts/comfy/admin/cms/flash" %>'
+# )
+
+# Modal
+Deface::Override.new(
+  virtual_path: 'spree/layouts/admin',
+  name: 'comfy_admin_modal',
+  insert_top: 'main > .row',
+  text: '<%= render "comfy/admin/cms/files/modal" if @site && !@site.new_record? %>'
+)
