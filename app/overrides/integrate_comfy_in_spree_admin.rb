@@ -56,7 +56,7 @@ Deface::Override.new(
   name: 'comfy_admin_space_for_right_column',
   set_attributes: 'main > .row #content',
   attributes: {
-    class: "col-lg-10"
+    class: "<%= (controller.class < Comfy::Admin::Cms::BaseController) ? 'col-lg-10' : ''%>"
   }
 )
 
