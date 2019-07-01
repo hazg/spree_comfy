@@ -3,10 +3,10 @@ module SpreeComfy
     extend ActiveSupport::Concern
 
     included do
-      before_action :load_admin_site, except: [:jump]
+     before_action :spree_comfy_load_admin_site, except: [:jump]
     end
 
-    def load_admin_site
+    def spree_comfy_load_admin_site
       id_param = params[:site_id] || session[:site_id]
       if (@site = ::Comfy::Cms::Site.find_by(id: id_param) || ::Comfy::Cms::Site.first)
         session[:site_id] = @site.id

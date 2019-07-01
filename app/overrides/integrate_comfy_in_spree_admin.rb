@@ -77,9 +77,9 @@ Deface::Override.new(
 # )
 
 # Modal
-Deface::Override.new(
-  virtual_path: 'spree/layouts/admin',
-  name: 'comfy_admin_modal',
-  insert_top: 'main > .row',
-  text: '<%= render "comfy/admin/cms/files/modal" if @site && !@site.new_record? %>'
-)
+# Deface::Override.new(
+#   virtual_path: 'spree/layouts/admin',
+#   name: 'comfy_admin_modal',
+#   insert_top: 'main > .row',
+#   text: '<%= render "comfy/admin/cms/files/modal" if @site && !@site.new_record? %>'
+# )
