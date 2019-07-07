@@ -32,6 +32,11 @@ module SpreeComfy
       # Spree::BaseController.send :include, ComfortableMexicanSofa::RenderMethods
 
       Comfy::Cms::Layout.send :include, SpreeComfy::Layout
+      Spree::BaseController.send :include, SpreeComfy::SpreeFrontendHelper
+      Comfy::Cms::ContentController.send :include, SpreeComfy::SpreeFrontendHelper
+
+      require 'spree_comfy/spree_base_helper_overrides'
+
     end
 
     config.to_prepare &method(:activate).to_proc
