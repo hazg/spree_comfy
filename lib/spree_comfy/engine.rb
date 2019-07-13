@@ -20,9 +20,11 @@ module SpreeComfy
 
       Comfy::Cms::BaseController.send :helper, Spree::BaseHelper
       Comfy::Cms::BaseController.send :helper, SpreeComfy::ComfyHelper
+      Comfy::Cms::BaseController.send :helper, Spree::Core::Engine.routes.url_helpers
 
       Comfy::Admin::Cms::BaseController.send :include, Spree::Core::ControllerHelpers::Auth
-      Comfy::Admin::Cms::BaseController.send :include, Spree::Core::ControllerHelpers::Store
+      Comfy::Admin::Cms::BaseController.send :include, Spree::Core::ControllerHelpers
+      #Comfy::Admin::Cms::BaseController.send :include, Spree::Core::ControllerHelpers::Store
 
       Comfy::Admin::BaseController.send :include, Spree::Core::ControllerHelpers::Auth
       Comfy::Admin::BaseController.send :include, Spree::Core::ControllerHelpers::Store
