@@ -1,9 +1,11 @@
 module SpreeComfy
   module AdminLayout
     extend ActiveSupport::Concern
+
     included do
       layout :spree_comfy_layout
     end
+
     def spree_comfy_layout
       if params[:layout] == "false" || request.xhr?
         false
@@ -11,7 +13,6 @@ module SpreeComfy
         '/spree/layouts/admin'
       end
     end
-
 
   end
 
