@@ -34,6 +34,8 @@ module SpreeComfy
       # Spree::BaseController.send :include, ComfortableMexicanSofa::RenderMethods
 
       Comfy::Cms::Layout.send :include, SpreeComfy::Layout
+      Comfy::Admin::Cms::BaseController.send :include, SpreeComfy::AdminLayout
+
       Spree::BaseController.send :include, SpreeComfy::SpreeFrontendHelper
       Comfy::Cms::ContentController.send :include, SpreeComfy::SpreeFrontendHelper
 
